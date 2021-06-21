@@ -1,9 +1,10 @@
+import { AppProps } from "next/app";
 import toast, { Toaster, ToastBar } from "react-hot-toast";
 
-function MyApp({ Component, pageProps }) {
+const App = (props: AppProps) => {
   return (
     <div>
-      <Component {...pageProps} />
+      <props.Component {...props.pageProps} />
       <Toaster>
         {(t) => (
           <ToastBar toast={t}>
@@ -22,6 +23,6 @@ function MyApp({ Component, pageProps }) {
       ;
     </div>
   );
-}
+};
 
-export default MyApp;
+export default App;

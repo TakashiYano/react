@@ -1,18 +1,13 @@
-import Head from "next/head";
+import type { NextPage } from "next";
 import toast from "react-hot-toast";
 
-export default function Home() {
+const Home: NextPage = () => {
   const handleClick = () => {
     toast.success("Got the data");
   };
 
   return (
     <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main>
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
@@ -210,4 +205,6 @@ export default function Home() {
       `}</style>
     </div>
   );
-}
+};
+
+export default Home;
