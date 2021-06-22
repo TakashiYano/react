@@ -1,5 +1,5 @@
 import type { ReactNode, VFC } from "react";
-import styles from "../styles/Home.module.css";
+import classes from "../styles/Headline.module.css";
 
 type Props = {
   children: ReactNode;
@@ -13,8 +13,8 @@ type Props = {
 export const Headline: VFC<Props> = (props) => {
   return (
     <div>
-      <h1 className={styles.title}>{props.page} Page</h1>
-      <p className={styles.description}>
+      <h1 className={classes.title}>{props.page} Page</h1>
+      <p className={classes.description}>
         Get started by editing {props.children}
       </p>
     </div>

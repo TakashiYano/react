@@ -1,7 +1,7 @@
 import type { VFC } from "react";
 import { Headline } from "../components/Headline";
 import { Links } from "../components/Links";
-import styles from "../styles/Home.module.css";
+import classes from "../styles/Main.module.css";
 
 type Props = {
   page: String;
@@ -9,7 +9,7 @@ type Props = {
 
 export const Main: VFC<Props> = (props) => {
   return (
-    <main className={styles.main}>
+    <main className={classes.main}>
       <Headline
         page={props.page}
         number={111}
@@ -17,7 +17,7 @@ export const Main: VFC<Props> = (props) => {
         obj={{ foo: "foo", bar: "bar" }}
         boolean
       >
-        <code className={styles.code}>pages/{props.page}.tsx</code>
+        <code className={classes.code}>pages/{props.page}.tsx</code>
       </Headline>
       <Links />
     </main>
