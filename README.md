@@ -51,6 +51,11 @@
   - 状態管理
     - React のコンポーネントは、状態が変化しないとコンポーネントが再レンダリングされない：useState を使って state の管理を行う
     - 親が再レンダリングされたタイミングで、子コンポーネントが受け取っている props の値が変わると再レンダリングされる
+  - [スプレッド構文](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+    - [破壊的メソッド](https://jsprimer.net/basic/array/#mutable-immutable)を使うのは NG：スプレッド構文を用いて配列やオブジェクトもイミュータブルに扱う
+      - ミュータブル(一度値を作成した後に変更できる)：配列・オブジェクトのデフォルト
+      - イミュータブル(一度値を作成した後に変更できない)：文字列・数値のデフォルト
+      -
 
 - [Next.js](https://nextjs.org/docs)
 
