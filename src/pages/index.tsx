@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { Main } from "src/components/Main";
 import { Footer } from "src/components/shared/Footer";
 import { Header } from "src/components/shared/Header";
@@ -9,6 +9,15 @@ const Home: NextPage = () => {
   const handleClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
   }, []);
+
+  useEffect(() => {
+    // mount
+    document.body.style.backgroundColor = "lightblue";
+    return () => {
+      // unmount
+      document.body.style.backgroundColor = "";
+    }
+  }, [])
 
   return (
     <div className={styles.container}>

@@ -1,4 +1,4 @@
-import type { VFC } from "react";
+import { VFC } from "react";
 import { Headline } from "src/components/Headline";
 import { Links } from "src/components/Links";
 import classes from "src/components/Main/Main.module.css";
