@@ -9,9 +9,11 @@ const Home: NextPage = () => {
   const [count, setCount] = useState(1);
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    setCount(count => count + 1);
-    setCount(count => count + 1);
-  }, []);
+    if (count < 10) {
+      setCount(count => count + 1);
+    }
+    e.preventDefault();
+  }, [count]);
 
   useEffect(() => {
     // mount
