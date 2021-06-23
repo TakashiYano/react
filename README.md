@@ -6,6 +6,22 @@
 
   - 命令的な View で DOM 操作を行う。
 
+- TypeScript
+
+  - イベント処理の型推論
+
+  ```
+  type Props = {
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+    onkeypress: (event: React.KeyboardEvent<HTMLInputElement>) => void
+    onBlur: (event: React.FocusEvent<HTMLInputElement>) => void
+    onFocus: (event: React.FocusEvent<HTMLInputElement>) => void
+    onSubmit: (event: React.FormEvent<HTMLFormElement>) => void
+    onClickDiv: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  }
+  ```
+
 - [React](https://ja.reactjs.org/docs/getting-started.html)
 
   - URL と画面の紐づけ(ルーティング)を自分で記述する必要がある。
@@ -17,8 +33,11 @@
   - コンポーネントの再レンダリングを管理することによって、ユーザーがアクションを起こした時やページが切り替わった時に、コンポーネントを再び描画させることなくパフォーマンスの高いサイトを作ることが出来る。
   - 子コンポーネントは必ず 1 つの div を返すとする。(React.Fragment を使用しない)
   - map 構文では、一意となるように key を指定する必要がある(重複がないことを確認するため)。データの増減が容易＋修正が全箇所に反映される。データと処理の部分は分けるように意識することで可読性が高くなる。(リファクタリング)
-  - 拡張子を.jsx・.tsxにすることで、Reactの補完がきくようになる。
-  - [絶対パスインポート](https://nextjs.org/docs/advanced-features/module-path-aliases)にすることで複雑にならない。tsconfig.jsonと.vscode/settings.jsonに設定する。
+  - 拡張子を.jsx・.tsx にすることで、React の補完がきくようになる。
+  - [絶対パスインポート](https://nextjs.org/docs/advanced-features/module-path-aliases)にすることで複雑にならない。tsconfig.json と.vscode/settings.json に設定する。
+  - React の[イベント(クリックイベントなど)](https://ja.reactjs.org/docs/events.html)は様々なブラウザで同様の操作が起きるように、wrapper ということで React 側で使いやすいようにしてくれている。基本的にはブラウザのネイティブイベントと同様。関数宣言をコンポーネントの外部で行った場合、コンポーネントの内部の変数にアクセスしようとすると、引数として渡さないといけなくなる。引数が必要になる場合は内部に関数宣言した方が良い。
+    - 関数宣言を内部に行うと、コンポーネントが再レンダリングされる段階でメソッドも再生成されてしまうため、パフォーマンスが劣ってしまう。
+    - 回避策：useCallback(第 2 引数が必要)
 
 - [Next.js](https://nextjs.org/docs)
 
