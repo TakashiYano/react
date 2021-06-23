@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import classes from "../styles/Links.module.css";
+import classes from "src/components/Links/Links.module.css";
 
 const ITEMS = [
   {

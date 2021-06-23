@@ -1,5 +1,5 @@
 import type { ReactNode, VFC } from "react";
-import classes from "../styles/Headline.module.css";
+import classes from "src/components/Headline/Headline.module.css";
 
 type Props = {
   children: ReactNode;

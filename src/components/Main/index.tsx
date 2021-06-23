@@ -1,7 +1,7 @@
 import type { VFC } from "react";
-import { Headline } from "../components/Headline";
-import { Links } from "../components/Links";
-import classes from "../styles/Main.module.css";
+import { Headline } from "src/components/Headline";
+import { Links } from "src/components/Links";
+import classes from "src/components/Main/Main.module.css";
 
 type Props = {
   page: String;

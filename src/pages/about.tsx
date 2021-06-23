@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { Main } from "../components/Main";
-import { Footer } from "../components/shared/Footer";
-import { Header } from "../components/shared/Header";
-import styles from "../styles/Home.module.css";
+import { Main } from "src/components/Main";
+import { Footer } from "src/components/shared/Footer";
+import { Header } from "src/components/shared/Header";
+import styles from "src/styles/Home.module.css";
 
 const About: NextPage = () => {
   return (

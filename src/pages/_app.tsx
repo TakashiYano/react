@@ -1,6 +1,6 @@
 import { AppProps } from "next/app";
 import toast, { Toaster, ToastBar } from "react-hot-toast";
-import "../styles/globals.css";
+import "src/styles/globals.css";
 
 const App = (props: AppProps) => {
   return (
