@@ -3,14 +3,29 @@ import styles from "src/styles/Home.module.css";
 import { Main } from "src/components/Main";
 import { Footer } from "src/components/shared/Footer";
 import { Header } from "src/components/shared/Header";
-import { useBgLightBlue } from "src/hooks/useBgLightBlue";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
 
-const Home: NextPage = () => {
-  const { count, isShow, handleClick, handleDisplay } = useCounter();
-  const { text, array, handleChange, handleAdd } = useInputArray();
-  useBgLightBlue();
+type Props = {
+  count: number;
+  isShow: boolean;
+  handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleDisplay: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  text: string;
+  array: string[];
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleAdd: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};
+
+const Home: NextPage<Props> = (props) => {
+  const {
+    count,
+    isShow,
+    handleClick,
+    handleDisplay,
+    text,
+    array,
+    handleChange,
+    handleAdd,
+  } = props;
 
   return (
     <div className={styles.container}>
@@ -23,10 +38,8 @@ const Home: NextPage = () => {
       <input type="text" value={text} onChange={handleChange} />
       <button onClick={handleAdd}>追加</button>
       <ul>
-        {array.map(item => {
-          return (
-            <li key={item}>{item}</li>
-          );
+        {array.map((item) => {
+          return <li key={item}>{item}</li>;
         })}
       </ul>
 
