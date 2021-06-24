@@ -6,7 +6,7 @@ export const useCounter = () => {
 
   const handleClick = useCallback(() => {
     if (count < 10) {
-      setCount(count => count + 1);
+      setCount((count) => count + 1);
     }
   }, [count]);
 
