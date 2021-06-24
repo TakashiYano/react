@@ -6,7 +6,7 @@ type Props = {
   items: { href: string; title: string; description: string }[];
 };
 
-export const Links: VFC<Props> = ({ items }) => {
+export const Links: VFC<Props> = (props) => {
   const handleClick = () => {
     toast.success("Got the data");
   };
@@ -20,7 +20,7 @@ export const Links: VFC<Props> = ({ items }) => {
         </p>
       </button>
 
-      {items.map((item) => {
+      {props.items.map((item) => {
         return (
           <a key={item.href} href={item.href} className={classes.card}>
             <h3 className={classes.title}>{item.title}</h3>

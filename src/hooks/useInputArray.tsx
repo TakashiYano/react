@@ -14,7 +14,8 @@ export const useInputArray = () => {
 
   const handleAdd = useCallback(() => {
     setArray((array) => {
-      if (array.some((item) => item === text)) {
+      // 配列の要素がオブジェクトの場合はarray.some((item) => item === text)
+      if (array.includes(text)) {
         alert("同じ要素が既に存在します。");
         return array;
       }
