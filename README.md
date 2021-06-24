@@ -60,6 +60,13 @@
     - フックを呼び出すのはReactの関数内のみ
       - Reactの関数であることを区別するために名前はuseで始めるべき
     - フックで分けることでUIの自由度が高くなる
+  - stateのリフトアップ：ページ間やコンポーネント間で値を共通化
+    - Redux, Recoil
+    - Context
+    - Apollo Client
+  - _app(page間の状態共通化)
+    - コンポーネントにPropsとして渡したものが各ページにPropsとして渡る
+    - 状態を定義してそれをコンポーネントに渡すことによって各ページで状態を共通化できる
 
 - [Next.js](https://nextjs.org/docs)
 
