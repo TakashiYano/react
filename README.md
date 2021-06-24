@@ -5,6 +5,8 @@
 - JavaScript
 
   - 命令的な View で DOM 操作を行う
+  - [関数宣言(function OR arrow)](https://qiita.com/suin/items/a44825d253d023e31e4d)
+    - [アロー関数の方が TypeScript で型定義をするときに楽なことがある(Next.js の SSR・SSG・ISR などを用いる時)](https://nextjs.org/docs/basic-features/typescript)
 
 - TypeScript
 
@@ -81,6 +83,7 @@
     - ファイルの規則に沿って、ルーティングが自動生成される
     - ビルトインで最初から CSS Modules を使うことが出来る。CSS Modules を使うことで CSS の管理が容易になる。CSS のクラス名が被らないように一意の値を割り振る。絶対にクラスセレクターでなければならない。メンテナンス性の高いアプリケーション開発を行うことが可能になる
     - Link コンポーネントによって読み込みが必要な部分だけで済み、Prefetch によりリンク先のデータをバックグラウンドで読み込むため、高速なページ遷移が実現できる
+    - [useRouter](https://nextjs.org/docs/api-reference/next/router)
 
 - [React Hot Toast](https://react-hot-toast.com/)
   - Toast に特化したライブラリ(パッケージ)
