@@ -1,14 +1,14 @@
 import { AppProps } from "next/app";
 import toast, { Toaster, ToastBar } from "react-hot-toast";
 import "src/styles/globals.css";
-import { useBgLightBlue } from "src/hooks/useBgLightBlue";
+import { useBgColor } from "src/hooks/useBgColor";
 import { useCounter } from "src/hooks/useCounter";
 import { useInputArray } from "src/hooks/useInputArray";
 
 const App = (props: AppProps) => {
   const counter = useCounter();
   const inputArray = useInputArray();
-  useBgLightBlue();
+  useBgColor();
 
   return (
     <div>
