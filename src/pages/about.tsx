@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import styles from "src/styles/Home.module.css";
+import classes from "src/styles/Home.module.css";
 import { Main } from "src/components/Main";
 import { Footer } from "src/components/shared/Footer";
 import { Header } from "src/components/shared/Header";
@@ -17,7 +17,7 @@ type Props = {
 
 const About: NextPage<Props> = (props) => {
   return (
-    <div className={styles.container}>
+    <div className={classes.container}>
       <Header />
 
       {props.isShow ? <h1>{props.doubleCount}</h1> : null}
