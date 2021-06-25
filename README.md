@@ -86,7 +86,21 @@
     - [useRouter](https://nextjs.org/docs/api-reference/next/router)
 
 - [React Hot Toast](https://react-hot-toast.com/)
+
   - Toast に特化したライブラリ(パッケージ)
   - 軽量で TypeScript 対応もありヘッドレスもできる
   - 他にも[Material UI](https://material-ui.com/ja/components/snackbars/)や[ChakraUI](https://chakra-ui.com/docs/feedback/toast)が Toast を実装：Material UI は状態管理を行う必要があり、Chakra UI は hooks を呼び出す必要がある
   - Tailwind CSS を使用していて、Toast 実装のために material UI を導入することはパフォーマンスの低下：React Hot Toast を用いる
+
+- [classcat](https://github.com/jorgebucaran/classcat)
+
+  - className を条件で出し分ける時に便利なライブラリ
+  - バンドルサイズが小さく、頻繁に開発されている
+  - 疑似ライブラリ：classnames・clsx
+
+- ライブラリを選ぶ時の基準
+  - 頻繁にメンテナンスされているか
+  - リリース日の最新がいつなのか
+  - TypeScript の型定義があるか(index.d.ts)
+  - TypeScript で開発されているか
+  - [BUNDLEPHOBIA](https://bundlephobia.com/)でサイズを見る
