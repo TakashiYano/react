@@ -4,6 +4,7 @@ import classes from "src/components/shared/Header/Header.module.css";
 const NAV_ITEMS = [
   { href: "/", label: "Index" },
   { href: "/about", label: "About" },
+  { href: "/test", label: "Test" },
 ];
 
 export const Header = () => {
