@@ -84,6 +84,11 @@
     - ビルトインで最初から CSS Modules を使うことが出来る。CSS Modules を使うことで CSS の管理が容易になる。CSS のクラス名が被らないように一意の値を割り振る。絶対にクラスセレクターでなければならない。メンテナンス性の高いアプリケーション開発を行うことが可能になる
     - Link コンポーネントによって読み込みが必要な部分だけで済み、Prefetch によりリンク先のデータをバックグラウンドで読み込むため、高速なページ遷移が実現できる
     - [useRouter](https://nextjs.org/docs/api-reference/next/router)
+    - API Route(サーバーレスファンクション)
+      - 簡易的なサーバーを立ち上げることが出来る
+    - next/image
+      - next.jsが用意しているイメージコンポーネント
+      - パフォーマンスの最適化
 
 - [React Hot Toast](https://react-hot-toast.com/)
 
