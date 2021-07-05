@@ -87,8 +87,12 @@
     - API Route(サーバーレスファンクション)
       - 簡易的なサーバーを立ち上げることが出来る
     - next/image
-      - next.jsが用意しているイメージコンポーネント
+      - next.js が用意しているイメージコンポーネント
       - パフォーマンスの最適化
+
+- API・非同期処理
+
+  - [{JSON}Placeholder](https://jsonplaceholder.typicode.com/)
 
 - [React Hot Toast](https://react-hot-toast.com/)
 
