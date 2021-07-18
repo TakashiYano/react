@@ -77,6 +77,17 @@
   - 非同期処理(ローディング・エラーの状態)
     - 外部のパッケージに任せる方が楽(SWR・React Query)
     - API エンドポイント(API の叩き先)
+  - [useReducer](https://ja.reactjs.org/docs/hooks-reference.html#usereducer)
+    - (state, action) => newState という型のレデューサ(reducer)を受け取り、現在のstateをdispatchメソッドとペアにして返す
+    - コールバックの代わりにdispatchを下位コンポーネントに渡せるようになるため、複数階層にまたがって更新を発生させるようなコンポーネントではパフォーマンスの最適化にもなる
+    - メリット
+      - 宣言的にどういうアクションが起こるか一目でわかる
+      - useStateの場合は状態がいくつあるか予想がつかない
+    - reducer
+      - 現在のstateと、新しいactionを受け取って新しいstateを返す
+      - 新しいstateを返す方法がdispatch
+    - dispatch
+      - dispatchを使って新しいactionを発生させ、既存のstateと組み合わせて新しいstateを生み出す
 
 - [Next.js](https://nextjs.org/docs)
 
