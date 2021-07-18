@@ -83,6 +83,7 @@
     - メリット
       - 宣言的にどういうアクションが起こるか一目でわかる
       - useStateの場合は状態がいくつあるか予想がつかない
+    - [TypeScript(型定義)](https://www.webopixel.net/javascript/1647.html)
     - reducer
       - 現在のstateと、新しいactionを受け取って新しいstateを返す
       - 新しいstateを返す方法がdispatch
