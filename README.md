@@ -90,6 +90,16 @@
     - dispatch
       - dispatchを使って新しいactionを発生させ、既存のstateと組み合わせて新しいstateを生み出す
 
+- [SWR](https://swr.vercel.app/ja)
+  - オプション
+    - React Suspenseモードを有効にする
+    - 内部のfetchの実装をオーバーライドするfetcher
+      - fetcherが機能しないと、条件分岐が意図したとおりに機能せずreturnまで通る
+    - 初期値をどうするか(initialData)
+    - ユーザーがオフラインからオンラインに戻った時に自動的にfetchをさせる(revalidateOnReconnect)
+    - 定期的な間隔で非同期処理を行いたいとき(ポーリングの間隔：refreshInterval)
+    - 
+
 - [Next.js](https://nextjs.org/docs)
 
   - 特徴
