@@ -89,6 +89,15 @@
       - 新しい state を返す方法が dispatch
     - dispatch
       - dispatch を使って新しい action を発生させ、既存の state と組み合わせて新しい state を生み出す
+  - [Validation(React hook form)](https://react-hook-form.com/advanced-usage/#main)
+    - カスタムフックは、検証メソッドとしてyup/Joiと簡単に統合でき、検証リゾルバー内で使用できる
+      - メモ化された検証スキーマを定義します（または、依存関係がない場合はコンポーネントの外部で定義します）
+      - 検証スキーマを渡すことにより、カスタムフックを使用します
+      - 検証リゾルバーをuseFormフックに渡します
+    - 外部パッケージ
+      - [yup](https://github.com/jquense/yup)
+      - [joi](https://github.com/sideway/joi)
+      - [zod](https://github.com/colinhacks/zod)
 
 - [SWR](https://swr.vercel.app/ja)
 
@@ -122,6 +131,10 @@
       - ディレクトリのルートとしてルーティングする
     - 動的 Routes
       - 動的なセグメントにマッチさせたければ、[].拡張子を使う
+  - [next-seo](https://github.com/garmeeh/next-seo)
+    - Next.jsプロジェクトでのSEOの管理を容易にするプラグイン
+    - SEO属性を追加したいページに含めることで機能する
+    - ページのSEOプロパティを持つ構成オブジェクトをページに渡す
 
 - API・非同期処理
 
