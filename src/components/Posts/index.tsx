@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { usePosts } from "src/hooks/usePosts";
 
 export const Posts: React.VFC = () => {
@@ -18,7 +19,13 @@ export const Posts: React.VFC = () => {
   return (
     <ol>
       {data?.map(({ id, title }) => {
-        return <li key={id}>{title}</li>;
+        return (
+          <li key={id}>
+            <Link href={`/post/${id}`}>
+              <a>{title}</a>
+            </Link>
+          </li>
+        );
       })}
     </ol>
   );
