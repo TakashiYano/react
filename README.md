@@ -78,27 +78,28 @@
     - 外部のパッケージに任せる方が楽(SWR・React Query)
     - API エンドポイント(API の叩き先)
   - [useReducer](https://ja.reactjs.org/docs/hooks-reference.html#usereducer)
-    - (state, action) => newState という型のレデューサ(reducer)を受け取り、現在のstateをdispatchメソッドとペアにして返す
-    - コールバックの代わりにdispatchを下位コンポーネントに渡せるようになるため、複数階層にまたがって更新を発生させるようなコンポーネントではパフォーマンスの最適化にもなる
+    - (state, action) => newState という型のレデューサ(reducer)を受け取り、現在の state を dispatch メソッドとペアにして返す
+    - コールバックの代わりに dispatch を下位コンポーネントに渡せるようになるため、複数階層にまたがって更新を発生させるようなコンポーネントではパフォーマンスの最適化にもなる
     - メリット
       - 宣言的にどういうアクションが起こるか一目でわかる
-      - useStateの場合は状態がいくつあるか予想がつかない
+      - useState の場合は状態がいくつあるか予想がつかない
     - [TypeScript(型定義)](https://www.webopixel.net/javascript/1647.html)
     - reducer
-      - 現在のstateと、新しいactionを受け取って新しいstateを返す
-      - 新しいstateを返す方法がdispatch
+      - 現在の state と、新しい action を受け取って新しい state を返す
+      - 新しい state を返す方法が dispatch
     - dispatch
-      - dispatchを使って新しいactionを発生させ、既存のstateと組み合わせて新しいstateを生み出す
+      - dispatch を使って新しい action を発生させ、既存の state と組み合わせて新しい state を生み出す
 
 - [SWR](https://swr.vercel.app/ja)
+
   - オプション
-    - React Suspenseモードを有効にする
-    - 内部のfetchの実装をオーバーライドするfetcher
-      - fetcherが機能しないと、条件分岐が意図したとおりに機能せずreturnまで通る
+    - React Suspense モードを有効にする
+    - 内部の fetch の実装をオーバーライドする fetcher
+      - fetcher が機能しないと、条件分岐が意図したとおりに機能せず return まで通る
     - 初期値をどうするか(initialData)
-    - ユーザーがオフラインからオンラインに戻った時に自動的にfetchをさせる(revalidateOnReconnect)
+    - ユーザーがオフラインからオンラインに戻った時に自動的に fetch をさせる(revalidateOnReconnect)
     - 定期的な間隔で非同期処理を行いたいとき(ポーリングの間隔：refreshInterval)
-    - 
+    -
 
 - [Next.js](https://nextjs.org/docs)
 
@@ -114,6 +115,13 @@
     - next/image
       - next.js が用意しているイメージコンポーネント
       - パフォーマンスの最適化
+  - [ファイルシステムルーティング](https://nextjs-ja-translation-docs.vercel.app/docs/routing/introduction)
+    - Nested Routes
+      - ディレクトリをネストしていけば対応できる
+    - Index Routes
+      - ディレクトリのルートとしてルーティングする
+    - 動的 Routes
+      - 動的なセグメントにマッチさせたければ、[].拡張子を使う
 
 - API・非同期処理
 
