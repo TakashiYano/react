@@ -7,6 +7,8 @@
   - 命令的な View で DOM 操作を行う
   - [関数宣言(function OR arrow)](https://qiita.com/suin/items/a44825d253d023e31e4d)
     - [アロー関数の方が TypeScript で型定義をするときに楽なことがある(Next.js の SSR・SSG・ISR などを用いる時)](https://nextjs.org/docs/basic-features/typescript)
+  - lodash
+    - 便利な関数をまとめて提供しているライブラリ
 
 - TypeScript
 
@@ -100,6 +102,36 @@
       - [zod](https://github.com/colinhacks/zod)
   - [Optional chaining](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
     - undefinedだった場合はそのままundefinedで、title等があるときにはそのtitle等を表示させる
+  - Modal
+    - 外部ライブラリを使って実装せず独自で実装する場合には、ReactのcreatePortalを用いて自作する必要がある
+  - Tree Shaking
+    - webpackなどでファイルをバンドルする際に、デッドコード(利用されていない不要なコード)を除去してファイルを出力すること
+      - デッドコードを除去することにより、不要なコードがバンドルされるのを防ぐため(ファイルサイズが無駄に増加するのを防ぐため)
+  - cleanup
+    - useEffect内で非同期処理を行い、非同期処理が完了する前にページ遷移などでコンポーネントをアンマウントした場合に、非同期処理完了後に更新するコンポーネントがなくなっているため、cleanupに関するエラーが発生する
+    - アンマウントされたときにcleanupで処理を停止させることで非同期処理完了後の処理を動作しないようにする
+  - [react-error-boundary](https://github.com/bvaughn/react-error-boundary)
+    - エラーをスローする可能性のあるコンポーネントをラップすることで、そのコンポーネントとその子孫によってスローされたエラーも処理される
+  - [Suspense](https://ja.reactjs.org/docs/concurrent-mode-suspense.html)
+    - Promiseが未解決の場合はPromiseがthrowされるのでコンポーネントの処理は中断し、Suspense(Promise Boundary)が捕捉してフォールバックを表示し、Promiseが解決している場合は何もthrowされず具体的な値がreturnされてデータが入手できるので、そのままコンポーネントがレンダリングされる
+
+- [React](https://ja.reactjs.org/docs/getting-started.html)、[Vue](https://jp.vuejs.org/v2/guide/index.html)、[Angular](https://angular.io/api/common/DOCUMENT)の特徴
+  - React
+    1. 開発を行っている人数が多い
+    1. facebook自体でReactコンポーネントが1万以上使われている
+    1. VercelがReact向けに開発を進めている
+    1. エコシステムの観点において周辺ライブラリの対応が早い
+  - Vue
+    1. 一人の開発者が開発を行っている
+    1. シングルファイルコンポーネントによって、コンポーネントを一つのファイルに複数書くことができない
+    1. ドキュメントの対応が早い
+    1. シングルファイルコンポーネントでシンプルな構成のためデザイナーにとって分かりやすい
+    1. ライブラリ選択で迷うことが少ない(Reactに比べてライブラリが少ないため)
+  - Angular
+    1. TypeScript前提で書かれている
+    1. コンポーネントを作るときにCLIを使うことが多い
+    1. 状態を入れ込むときにDIという特殊な記法を用いる
+    1. rxjsを使ってコードを書いていく必要がある
 
 - [SWR](https://swr.vercel.app/ja)
 
