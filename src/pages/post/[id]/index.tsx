@@ -1,15 +1,13 @@
 import type { NextPage } from "next";
 import classes from "src/styles/Home.module.css";
 import { Header } from "src/components/shared/Header";
-import { useRouter } from "next/dist/client/router";
+import { Post } from "src/components/Post";
 
 const PostId: NextPage = () => {
-  const router = useRouter();
-
   return (
     <div className={classes.container}>
       <Header />
-      <div>{router.query.id}</div>
+      <Post />
     </div>
   );
 };
