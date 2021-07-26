@@ -98,6 +98,8 @@
       - [yup](https://github.com/jquense/yup)
       - [joi](https://github.com/sideway/joi)
       - [zod](https://github.com/colinhacks/zod)
+  - [Optional chaining](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+    - undefinedだった場合はそのままundefinedで、title等があるときにはそのtitle等を表示させる
 
 - [SWR](https://swr.vercel.app/ja)
 
@@ -108,7 +110,10 @@
     - 初期値をどうするか(initialData)
     - ユーザーがオフラインからオンラインに戻った時に自動的に fetch をさせる(revalidateOnReconnect)
     - 定期的な間隔で非同期処理を行いたいとき(ポーリングの間隔：refreshInterval)
-    -
+  - 条件付きフェッチ
+    - 条件付きでデータを取得するにはnullを使用する
+  - 連続データフェッチ
+    - データを取得してその取得したデータを基に、さらにfetchを行ってデータを表示させる
 
 - [Next.js](https://nextjs.org/docs)
 
