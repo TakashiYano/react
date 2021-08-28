@@ -21,7 +21,7 @@ export const Posts: React.VFC = () => {
       {data?.map(({ id, title }) => {
         return (
           <li key={id}>
-            <Link href={`/post/${id}`}>
+            <Link href={`/posts/${id}`}>
               <a>{title}</a>
             </Link>
           </li>
