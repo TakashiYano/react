@@ -10,17 +10,17 @@
   },
   "dependencies": {
     "classcat": "5.0.3",
-    "next": "11.1.0",
+    "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hot-toast": "2.1.1",
-    "swr": "1.0.0"
+    "swr": "1.0.1"
   },
   "devDependencies": {
     "@types/node": "15.12.4",
-    "@types/react": "17.0.19",
+    "@types/react": "17.0.21",
     "eslint": "7.32.0",
-    "eslint-config-next": "11.1.0",
-    "typescript": "4.4.2"
+    "eslint-config-next": "11.1.2",
+    "typescript": "4.4.3"
   }
 }
