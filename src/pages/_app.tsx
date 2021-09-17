@@ -1,11 +1,13 @@
 import { AppProps } from "next/app";
 import toast, { Toaster, ToastBar } from "react-hot-toast";
+import { Layout } from "src/components/Layout";
 import "src/styles/globals.css";
 const App = (props: AppProps) => {
-
   return (
     <div>
-      <props.Component {...props.pageProps} />
+      <Layout>
+        <props.Component {...props.pageProps} />
+      </Layout>
       <Toaster>
         {(t) => (
           <ToastBar toast={t}>

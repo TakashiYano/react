@@ -1,11 +1,10 @@
 import type { NextPage } from "next";
-import classes from "src/styles/Home.module.css";
 import { Header } from "src/components/shared/Header";
 import { Post } from "src/components/Post";
 
 const PostsId: NextPage = () => {
   return (
-    <div className={classes.container}>
+    <div>
       <Header />
       <Post />
     </div>
