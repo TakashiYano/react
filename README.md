@@ -135,17 +135,58 @@
 
 - [SWR](https://swr.vercel.app/ja)
 
+  - useSWRが便利な理由
+    - 同じリクエストに対して同じ結果を返す(キャッシュ)
+    - リクエスト数が圧倒的に減る
+
   - オプション
+    - パラメーター
+      - key：APIを叩くためのAPIエンドポイントが入ることになる(動的なものを入れるための仕組みとして関数を入れることもある)。キャッシュのkeyとして扱われる
+      - fetcher：fetchをするためのライブラリを独自で使いたい場合はfetcherの部分を変える
+      - option：[ドキュメント](https://swr.vercel.app/ja/docs/options)のオプション一覧を参照
+    - 返り値
+      - data
+      - error
+      - isValidating：リクエストまたは再検証の読み込みがある場合(ボタンを押せなくしたりする機能)
+      - mutate：キャッシュされたデータを更新する(ボタンを押した際のデータ更新)
     - React Suspense モードを有効にする
     - 内部の fetch の実装をオーバーライドする fetcher
       - fetcher が機能しないと、条件分岐が意図したとおりに機能せず return まで通る
     - 初期値をどうするか(initialData)
     - ユーザーがオフラインからオンラインに戻った時に自動的に fetch をさせる(revalidateOnReconnect)
     - 定期的な間隔で非同期処理を行いたいとき(ポーリングの間隔：refreshInterval)
+
   - 条件付きフェッチ
     - 条件付きでデータを取得するにはnullを使用する
   - 連続データフェッチ
     - データを取得してその取得したデータを基に、さらにfetchを行ってデータを表示させる
+
+  - グローバルに設定する方法
+    - useSWRを毎回セッティングするのではなく、グローバルに設定する
+    - SWRConfigコンポーネントを用いて、オプションのvalueにfetcherを定義する(_app)
+    - 全体設定よりも個別設定の方がオーバーライドされるようになっている
+
+  - バージョン1.0の変更点
+    - パッケージのサイズが小さくなった(fetchのサイズの中でも軽いためパフォーマンスが良い)
+    - Fallback Data
+      - 初期値を入れる時に用いる
+      - ログは何回も出さないようにレンダリングを抑えることが重要
+      - fallbackやgetStaticPropsを使うことで初期値を入れて、後ほどリクエストしたときのデータが変わらなければ、再レンダリングは行わない
+    - Immutable Mode
+      - 一度しかレンダリングを行わないときに便利
+    - Cache Provider
+      - matchMutate()の引数に正規表現を与えて、正規表現に当てはまるキーのものを一括で更新
+      - キャッシュをローカルストレージに保存することが出来る
+        - ローカルストレージとは、ブラウザ上に保存できる永続的にデータを保存したい時に使うもの
+        - ユーザーがアプリケーションを使うことをやめてから戻ってきた後に、前回のデータをそのまま表示させる
+    - Middleware
+      - useSWRでリクエストを行う前や行った後に、何かしらの処理を混ぜたい時に用いる
+        - Request Logger
+          - 開発中にどのAPIを叩いたのかをログに出力したいときに便利
+        - Keep Previous Result
+          - 過去のデータを保存する(メールを送信するときに取り消しが一定時間表示される)
+        - Serialize Object Keys
+          - SWRはキーを一定にすることによってキャッシュを効かせる
 
 - [Next.js](https://nextjs.org/docs)
 
@@ -196,3 +237,54 @@
   - TypeScript の型定義があるか(index.d.ts)
   - TypeScript で開発されているか
   - [BUNDLEPHOBIA](https://bundlephobia.com/)でサイズを見る
+
+- [Tailwind CSS](https://tailwindcss.com/docs)
+
+  - autoprefixer
+    - 自動でベンダープレフィックスを付けてくれるもの
+      - CSSはブラウザによって使えるもの使えないものがあるが、ベンダープレフィックスを付けることでどのブラウザでも動くようにしてくれる
+  - Purge
+    - 未使用のスタイルを取り除く
+    - index.htmlで使われているclass要素以外は取り除く
+  - Minify
+    - 本番環境にcssnanoをインストール(開発環境では不要)
+      - アロー関数でcontext(ctx)を参照し、contextが持っているenvの値によってcssnanoの適用・非適用を管理する(postcss.config.js)
+    - ビルド時にファイルサイズを圧縮する
+
+  - JITモード
+    - ビルドタイムが早い
+    - 様々なバリアントが使える
+      - JITモードではvariantを組み合わせて使える
+    - 柔軟性がある
+      - 独自の値も使える→mt-[113px]
+      - カスタマイズが可能
+    - ブラウザのパフォーマンスが開発中に上がる
+  - 使い方
+    - tailwind.config.js→「mode: "jit"」
+    - npm scriptsに以下を追記(package.json)
+      - 「"dev": "TAILWIND_MODE=watch postcss styles.css -o dist.css -w"」を追加することで、styles.cssに何か変更があった時に改めてビルドが走るという状態になる
+      - classに要素が追加されたら、もう一度ビルドし直して出力する
+      - 行数は少なくて軽い状態なのに新しいclassを追加できる
+  - JITモードで古いユーティリティが消えない理由
+    - 本番環境に新しくビルドするときに使用していないclassは削除してくれるので、開発環境では取り除く必要がない
+
+  - 文字装飾ユーティリティ
+    - カスタマイズ可能
+      - tailwind.config.jsのthemeに要素を追加する
+    - Font Family(フォントの種類)
+      - font-sans(デフォルト)
+      - font-serif(フォーマルな印象)
+      - font-mono(等幅になる)
+    - Font Size(大きさ)
+    - Font Smoothing(アンチエイリアスを設定して文字の滑らかさを調整する)
+      - antialiased(文字が少しだけ細い)
+      - subpixel-antialiased
+    - Font Style(斜体)
+      - italic
+    - Font Weight(太字)
+      - font-bold
+    - Font Variant Numeric(数値の見せ方)
+      - ほとんどのFont Familyで対応していない
+    - Letter Spacing(文字間の幅)
+    - Line Height(文字の高さ)
+    - List Style(リストの見た目・場所)
