@@ -1,15 +1,13 @@
 {
-  "name": "learn-starter",
-  "version": "0.1.0",
-  "private": true,
+  "name": "learn-react",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint:eslint": "next lint",
-    "lint:prettier": "prettier --check .",
-    "fix:eslint": "next lint --fix",
-    "fix:prettier": "prettier --write ."
+    "fix:eslint": "next lint --fix"
   },
   "dependencies": {
     "classcat": "5.0.3",
