@@ -1,6 +1,6 @@
 # 概要
 
-React Component のテスト用環境
+- React Component のテスト用環境
 
 ## 技術
 
