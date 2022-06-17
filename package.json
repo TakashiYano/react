@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint:eslint": "next lint",
+    "lint:prettier": "prettier --check .",
+    "fix:eslint": "next lint --fix",
+    "fix:prettier": "prettier --write ."
   },
   "dependencies": {
     "classcat": "5.0.3",
