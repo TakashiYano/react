@@ -27,6 +27,7 @@ export type UserType = {
 };
 
 export type CommentType = {
+  postId: string;
   name: string;
   email: string;
   body: string;
@@ -45,5 +46,9 @@ export type UsersByUserIdType = {
 };
 
 export type PostsByUserIdType = {
+  id: string | undefined;
+};
+
+export type PostByCommentIdType = {
   id: string | undefined;
 };

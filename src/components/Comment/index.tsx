@@ -1,3 +1,4 @@
+import { PostByCommentId } from "src/components/Post/PostByCommentId";
 import { useComment } from "src/hooks/useComment";
 
 export const CommentComponent: React.FC = () => {
@@ -18,6 +19,8 @@ export const CommentComponent: React.FC = () => {
         <li>{data?.name}</li>
         <li>{data?.email}</li>
       </ul>
+      <h2>元の記事</h2>
+      <PostByCommentId id={data?.postId} />
     </div>
   );
 };
