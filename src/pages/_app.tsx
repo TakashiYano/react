@@ -1,14 +1,19 @@
 import { AppProps } from "next/app";
-import { Layout } from "src/components/Layout";
 import "tailwindcss/tailwind.css";
-const App = (props: AppProps) => {
+import Head from "next/head";
+import { Layout } from "src/components/Layout";
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Layout>
-        <props.Component {...props.pageProps} />
+        <Component {...pageProps} />
       </Layout>
     </>
   );
 };
 
-export default App;
+export default MyApp;
