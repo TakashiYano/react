@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { usePosts } from "src/hooks/useFetchArray";
 
-export const Posts: React.VFC = () => {
+export const Posts: React.FC = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
 
   if (isLoading) {
@@ -18,11 +18,11 @@ export const Posts: React.VFC = () => {
 
   return (
     <ol>
-      {data?.map(({ id, title }) => {
+      {data?.map((post) => {
         return (
-          <li key={id}>
-            <Link href={`/posts/${id}`}>
-              <a>{title}</a>
+          <li key={post.id}>
+            <Link href={`/posts/${post.id}`}>
+              <a>{post.title}</a>
             </Link>
           </li>
         );

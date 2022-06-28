@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useComments } from "src/hooks/useFetchArray";
 
-export const CommentsComponent: React.VFC = () => {
+export const CommentsComponent: React.FC = () => {
   const { data, error, isLoading, isEmpty } = useComments();
 
   if (isLoading) {
@@ -18,11 +18,11 @@ export const CommentsComponent: React.VFC = () => {
 
   return (
     <ol>
-      {data?.map(({ id, body }) => {
+      {data?.map((comment) => {
         return (
-          <li key={id}>
-            <Link href={`/comments/${id}`}>
-              <a>{body}</a>
+          <li key={comment.id}>
+            <Link href={`/comments/${comment.id}`}>
+              <a>{comment.body}</a>
             </Link>
           </li>
         );

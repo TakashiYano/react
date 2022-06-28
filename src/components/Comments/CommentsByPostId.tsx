@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useCommentsByPostsId } from "src/hooks/useFetchArray";
+import { CommentsByPostIdType } from "src/types/types";
 
-export const CommentsByPostId = (props: { id: string }) => {
+export const CommentsByPostId: React.FC<CommentsByPostIdType> = (props) => {
   const { data, error, isLoading, isEmpty } = useCommentsByPostsId(props.id);
 
   if (isLoading) {
@@ -18,11 +19,11 @@ export const CommentsByPostId = (props: { id: string }) => {
 
   return (
     <ol>
-      {data?.map(({ id, body }) => {
+      {data?.map((comment) => {
         return (
-          <li key={id}>
-            <Link href={`/comments/${id}`}>
-              <a>{body}</a>
+          <li key={comment.id}>
+            <Link href={`/comments/${comment.id}`}>
+              <a>{comment.body}</a>
             </Link>
           </li>
         );

@@ -1,6 +1,6 @@
 import { useComment } from "src/hooks/useComment";
 
-export const CommentComponent = () => {
+export const CommentComponent: React.FC = () => {
   const { data, error, isLoading } = useComment();
 
   if (isLoading) {

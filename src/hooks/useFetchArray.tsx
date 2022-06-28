@@ -1,8 +1,9 @@
-import { CommentsType } from "src/types/types";
+import { FetchArrayType } from "src/types/types";
+import { fetcher } from "src/utils/fetcher";
 import useSWR, { Key } from "swr";
 
 export const useFetchArray = (url: Key) => {
-  const { data, error } = useSWR<CommentsType[], Error>(url);
+  const { data, error } = useSWR<FetchArrayType, Error>(url, fetcher);
 
   return {
     data,
@@ -26,6 +27,6 @@ export const useUsers = () => {
   return useFetchArray(`${API_URL}/users`);
 };
 
-export const useCommentsByPostsId = (id: string) => {
+export const useCommentsByPostsId = (id: string | undefined) => {
   return useFetchArray(id ? `${API_URL}/comments?postId=${id}` : null);
 };

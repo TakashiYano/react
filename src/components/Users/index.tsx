@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useUsers } from "src/hooks/useFetchArray";
 
-export const UsersComponent: React.VFC = () => {
+export const UsersComponent: React.FC = () => {
   const { data, error, isLoading, isEmpty } = useUsers();
 
   if (isLoading) {
@@ -18,11 +18,11 @@ export const UsersComponent: React.VFC = () => {
 
   return (
     <ol>
-      {data?.map(({ id, name, email }) => {
+      {data?.map((user) => {
         return (
-          <li key={id}>
-            <Link href={`/users/${id}`}>
-              <a>{`${name} (${email})`}</a>
+          <li key={user.id}>
+            <Link href={`/users/${user.id}`}>
+              <a>{`${user.name} (${user.email})`}</a>
             </Link>
           </li>
         );

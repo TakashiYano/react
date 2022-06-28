@@ -1,12 +1,21 @@
-export type PostsType = {
+import { ReactNode } from "react";
+
+export type FetchArrayType = {
+  id: string;
+  body: string;
+  title: string;
+  name: string;
+  email: string;
+}[];
+
+export type PostType = {
   userId: string;
   id: string;
   title: string;
   body: string;
 };
 
-export type UsersType = {
-  id: string;
+export type UserType = {
   name: string;
   email: string;
   username: string;
@@ -16,10 +25,20 @@ export type UsersType = {
   company: { name: string };
 };
 
-export type CommentsType = {
-  postId: string;
-  id: string;
+export type CommentType = {
   name: string;
   email: string;
   body: string;
+};
+
+export type LayoutType = {
+  children: ReactNode;
+};
+
+export type CommentsByPostIdType = {
+  id: string | undefined;
+};
+
+export type UsersByUserIdType = {
+  id: string | undefined;
 };

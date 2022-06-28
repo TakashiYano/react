@@ -1,6 +1,6 @@
 import { useUser } from "src/hooks/useUser";
 
-export const UserComponent = () => {
+export const UserComponent: React.FC = () => {
   const { data, error, isLoading } = useUser();
 
   if (isLoading) {
