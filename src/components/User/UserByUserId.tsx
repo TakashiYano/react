@@ -9,11 +9,11 @@ export const UserByUserId: React.FC<UsersByUserIdType> = (props) => {
   );
 
   if (!data && !error) {
-    return <div>ローディング中</div>;
+    return <p>Loading...</p>;
   }
 
   if (error) {
-    return <div>{error.message}</div>;
+    return <p>{error.message}</p>;
   }
 
   return <div>Created by {data?.name}</div>;

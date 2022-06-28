@@ -5,15 +5,15 @@ export const Posts: React.FC = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
 
   if (isLoading) {
-    return <div>ローディング中</div>;
+    return <p>Loading...</p>;
   }
 
   if (error) {
-    return <div>{error.message}</div>;
+    return <p>{error.message}</p>;
   }
 
   if (isEmpty) {
-    return <div>データは空です</div>;
+    return <p>No comments found.</p>;
   }
 
   return (
