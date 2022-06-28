@@ -16,6 +16,7 @@ export type PostType = {
 };
 
 export type UserType = {
+  id: string;
   name: string;
   email: string;
   username: string;
@@ -40,5 +41,9 @@ export type CommentsByPostIdType = {
 };
 
 export type UsersByUserIdType = {
+  id: string | undefined;
+};
+
+export type PostsByUserIdType = {
   id: string | undefined;
 };
