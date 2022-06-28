@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
 import { Layout } from "src/components/Layout";
-import "src/styles/globals.css";
+import "tailwindcss/tailwind.css";
+// import "src/styles/globals.css";
 const App = (props: AppProps) => {
   return (
     <>
