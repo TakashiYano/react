@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Header } from "src/components/shared/Header";
+import { Header } from "src/components/Header";
 import { UsersComponent } from "src/components/Users";
 import { useUsers } from "src/hooks/useUsers";
 

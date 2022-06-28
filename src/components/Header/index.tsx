@@ -1,5 +1,5 @@
 import Link from "next/link";
-import classes from "src/components/shared/Header/Header.module.css";
+import classes from "src/components/Header/Header.module.css";
 
 const NAV_ITEMS = [
   { href: "/", label: "Index" },
@@ -8,7 +8,7 @@ const NAV_ITEMS = [
   { href: "/comments", label: "Comments" },
 ];
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <header className={classes.header}>
       {NAV_ITEMS.map((item) => {
