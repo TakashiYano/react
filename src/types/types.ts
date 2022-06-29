@@ -60,3 +60,7 @@ export type ServerSideUserProps = {
 export type ServerSideUsersProps = {
   fallback: UserType[];
 };
+
+export type StaticCommentsProps = {
+  fallback: CommentType[];
+};
