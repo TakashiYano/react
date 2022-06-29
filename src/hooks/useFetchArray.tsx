@@ -1,9 +1,10 @@
 import { FetchArrayType } from "src/types/types";
 import { fetcher } from "src/utils/fetcher";
-import useSWR, { Key } from "swr";
+import useSWRImmutable from "swr/immutable";
+import { Key } from "swr";
 
 export const useFetchArray = (url: Key) => {
-  const { data, error } = useSWR<FetchArrayType, Error>(url, fetcher);
+  const { data, error } = useSWRImmutable<FetchArrayType, Error>(url, fetcher);
 
   return {
     data,

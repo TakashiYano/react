@@ -53,6 +53,10 @@ export type PostByCommentIdType = {
   id: string | undefined;
 };
 
-export type ServerSideIndexProps = {
+export type ServerSideUserProps = {
+  fallback: UserType[] | PostType[];
+};
+
+export type ServerSideUsersProps = {
   fallback: UserType[];
 };
