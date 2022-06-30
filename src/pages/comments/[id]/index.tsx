@@ -17,19 +17,28 @@ interface Params extends ParsedUrlQuery {
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const comments = await fetch("https://jsonplaceholder.typicode.com/comments");
+  const comments = await fetch(
+    "https://jsonplaceholder.typicode.com/comments?_limit=10"
+  );
   const commentsData: CommentType[] = await comments.json();
   const paths = commentsData.map((comment) => ({
     params: { id: comment.id.toString() },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 };
 
 export const getStaticProps = async (ctx: GetStaticPropsContext) => {
   const { id } = ctx.params as Params;
   const COMMENT_API_URL = `https://jsonplaceholder.typicode.com/comments/${id}`;
   const comment = await fetch(COMMENT_API_URL);
+
+  if (!comment.ok) {
+    return {
+      notFound: true,
+    };
+  }
+
   const commentData: CommentType = await comment.json();
 
   return {
