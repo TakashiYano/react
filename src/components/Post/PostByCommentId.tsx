@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { usePost } from "src/hooks/usePost";
-import { PostByCommentIdType } from "src/types/types";
 
-export const PostByCommentId: React.FC<PostByCommentIdType> = (props) => {
+type Props = {
+  id: string | undefined;
+};
+
+export const PostByCommentId: React.FC<Props> = (props) => {
   const { data, error, isLoading } = usePost(props.id);
 
   if (isLoading) {

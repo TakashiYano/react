@@ -1,8 +1,12 @@
 import useSWR from "swr";
 import { fetcher } from "src/utils/fetcher";
-import { UsersByUserIdType, UserType } from "src/types/types";
+import { UserType } from "src/types/types";
 
-export const UserByUserId: React.FC<UsersByUserIdType> = (props) => {
+export type Props = {
+  id: string | undefined;
+};
+
+export const UserByUserId: React.FC<Props> = (props) => {
   const { data, error } = useSWR<UserType, Error>(
     props.id ? `https://jsonplaceholder.typicode.com/users/${props.id}` : null,
     fetcher

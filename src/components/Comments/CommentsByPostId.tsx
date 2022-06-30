@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { useCommentsByPostId } from "src/hooks/useFetchArray";
-import { CommentsByPostIdType } from "src/types/types";
 
-export const CommentsByPostId: React.FC<CommentsByPostIdType> = (props) => {
+export type Props = {
+  id: string | undefined;
+};
+
+export const CommentsByPostId: React.FC<Props> = (props) => {
   const { data, error, isLoading, isEmpty } = useCommentsByPostId(props.id);
 
   if (isLoading) {

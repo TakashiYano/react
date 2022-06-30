@@ -1,13 +1,15 @@
-import type { NextPage } from "next";
+import type { InferGetStaticPropsType, NextPage } from "next";
 import { CommentsComponent } from "src/components/Comments";
 import { Header } from "src/components/Header";
-import { CommentType, StaticCommentsProps } from "src/types/types";
+import { CommentType } from "src/types/types";
 import { SWRConfig } from "swr";
+
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticProps = async () => {
   const COMMENTS_API_URL = `https://jsonplaceholder.typicode.com/comments`;
   const comments = await fetch(COMMENTS_API_URL);
-  const commentsData: CommentType = await comments.json();
+  const commentsData: CommentType[] = await comments.json();
 
   return {
     props: {
@@ -18,7 +20,7 @@ export const getStaticProps = async () => {
   };
 };
 
-const Comments: NextPage<StaticCommentsProps> = (props) => {
+const Comments: NextPage<Props> = (props) => {
   const { fallback } = props;
   return (
     <div>

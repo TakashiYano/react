@@ -1,13 +1,15 @@
-import { NextPage } from "next";
+import { InferGetServerSidePropsType, NextPage } from "next";
 import { Header } from "src/components/Header";
 import { UsersComponent } from "src/components/Users";
-import { ServerSideUsersProps, UserType } from "src/types/types";
+import { UserType } from "src/types/types";
 import { SWRConfig } from "swr";
+
+type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 export const getServerSideProps = async () => {
   const USERS_API_URL = `https://jsonplaceholder.typicode.com/users`;
   const users = await fetch(USERS_API_URL);
-  const usersData: UserType = await users.json();
+  const usersData: UserType[] = await users.json();
 
   return {
     props: {
@@ -18,7 +20,7 @@ export const getServerSideProps = async () => {
   };
 };
 
-const Users: NextPage<ServerSideUsersProps> = (props) => {
+const Users: NextPage<Props> = (props) => {
   const { fallback } = props;
   return (
     <div>

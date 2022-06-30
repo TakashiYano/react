@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { usePostsByUserId } from "src/hooks/useFetchArray";
-import { PostsByUserIdType } from "src/types/types";
 
-export const PostsByUserId: React.FC<PostsByUserIdType> = (props) => {
+export type Props = {
+  id: string | undefined;
+};
+
+export const PostsByUserId: React.FC<Props> = (props) => {
   const { data, error, isLoading, isEmpty } = usePostsByUserId(props.id);
 
   if (isLoading) {

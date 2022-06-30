@@ -1,66 +1,37 @@
-import { ReactNode } from "react";
-
-export type FetchArrayType = {
-  id: string;
+// posts, users, comments
+export type FetchType = {
+  id: number;
   body: string;
   title: string;
   name: string;
   email: string;
-}[];
+};
 
+// post
 export type PostType = {
-  userId: string;
-  id: string;
+  userId: number;
+  id: number;
   title: string;
   body: string;
 };
 
+// user
 export type UserType = {
-  id: string;
+  id: number;
   name: string;
-  email: string;
   username: string;
+  email: string;
   address: { city: string };
   phone: string;
   website: string;
   company: { name: string };
 };
 
+// comment
 export type CommentType = {
-  postId: string;
+  postId: number;
+  id: number;
   name: string;
   email: string;
   body: string;
-};
-
-export type LayoutType = {
-  children: ReactNode;
-};
-
-export type CommentsByPostIdType = {
-  id: string | undefined;
-};
-
-export type UsersByUserIdType = {
-  id: string | undefined;
-};
-
-export type PostsByUserIdType = {
-  id: string | undefined;
-};
-
-export type PostByCommentIdType = {
-  id: string | undefined;
-};
-
-export type ServerSideUserProps = {
-  fallback: UserType[] | PostType[];
-};
-
-export type ServerSideUsersProps = {
-  fallback: UserType[];
-};
-
-export type StaticCommentsProps = {
-  fallback: CommentType[];
 };
