@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
-import { Header } from "src/components/Header";
+import Head from "next/head";
 
 const Index: NextPage = () => {
   return (
     <div>
-      <Header />
-      <h1>title</h1>
+      <Head>
+        <title>Index Page</title>
+      </Head>
       <p>JSONPlaceholder</p>
     </div>
   );

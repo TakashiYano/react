@@ -1,6 +1,6 @@
 import { InferGetServerSidePropsType, NextPage } from "next";
-import { Header } from "src/components/Header";
-import { UsersComponent } from "src/components/Users";
+import Head from "next/head";
+import { UserList } from "src/components/User/UserList";
 import { UserType } from "src/types/types";
 import { API_URL } from "src/utils/const";
 import { SWRConfig } from "swr";
@@ -25,9 +25,11 @@ const Users: NextPage<Props> = (props) => {
   const { fallback } = props;
   return (
     <div>
+      <Head>
+        <title>Users Page</title>
+      </Head>
       <SWRConfig value={{ fallback }}>
-        <Header />
-        <UsersComponent />
+        <UserList />
       </SWRConfig>
     </div>
   );

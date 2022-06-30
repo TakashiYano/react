@@ -1,15 +1,20 @@
-import { PostsByUserId } from "src/components/Posts/PostsByUserId";
-import { useUser } from "src/hooks/useUser";
+import { useRouter } from "next/router";
+import { PostListByUserId } from "src/components/Post/PostListByUserId";
+import { useFetch } from "src/hooks/useFetch";
+import { API_URL } from "src/utils/const";
 
-export const UserComponent: React.FC = () => {
-  const { data, error, isLoading } = useUser();
+export const UserDetail: React.FC = () => {
+  const router = useRouter();
+  const { data, error, isLoading } = useFetch(
+    router.query.id ? `${API_URL}/users/${router.query.id}` : null
+  );
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <div>Loading...</div>;
   }
 
   if (error) {
-    return <p>{error.message}</p>;
+    return <div>{error.message}</div>;
   }
 
   return (
@@ -26,7 +31,7 @@ export const UserComponent: React.FC = () => {
       </ul>
       <h2 className="text-xl font-bold mt-10">投稿</h2>
       <div className="mt-2">
-        <PostsByUserId id={data?.id} />
+        <PostListByUserId id={data?.id} />
       </div>
     </div>
   );

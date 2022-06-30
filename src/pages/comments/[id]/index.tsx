@@ -5,8 +5,7 @@ import type {
   NextPage,
 } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { CommentComponent } from "src/components/Comment";
-import { Header } from "src/components/Header";
+import { CommentDetail } from "src/components/Comment/CommentDetail";
 import { CommentType } from "src/types/types";
 import { API_URL } from "src/utils/const";
 import { SWRConfig } from "swr";
@@ -55,9 +54,8 @@ const CommentsId: NextPage<Props> = (props) => {
   const { fallback } = props;
   return (
     <div>
-      <Header />
       <SWRConfig value={{ fallback }}>
-        <CommentComponent />
+        <CommentDetail />
       </SWRConfig>
     </div>
   );

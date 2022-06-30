@@ -1,8 +1,15 @@
 import Link from "next/link";
-import { usePosts } from "src/hooks/useFetchArray";
+import { useFetchArray } from "src/hooks/useFetchArray";
+import { API_URL } from "src/utils/const";
 
-export const Posts: React.FC = () => {
-  const { data, error, isLoading, isEmpty } = usePosts();
+type Props = {
+  id: string | undefined;
+};
+
+export const PostListByUserId: React.FC<Props> = (props) => {
+  const { data, error, isLoading, isEmpty } = useFetchArray(
+    props.id ? `${API_URL}/users/${props.id}/posts` : null
+  );
 
   if (isLoading) {
     return <p>Loading...</p>;

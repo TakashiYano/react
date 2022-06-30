@@ -3,8 +3,7 @@ import type {
   InferGetServerSidePropsType,
   NextPage,
 } from "next";
-import { Header } from "src/components/Header";
-import { UserComponent } from "src/components/User";
+import { UserDetail } from "src/components/User/UserDetail";
 import { PostType, UserType } from "src/types/types";
 import { API_URL } from "src/utils/const";
 import { SWRConfig } from "swr";
@@ -18,7 +17,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const user = await fetch(USER_API_URL);
   const userData: UserType = await user.json();
   // ユーザーの投稿の取得
-  const POSTS_API_URL = `${API_URL}/posts?userId=${userData.id}`;
+  const POSTS_API_URL = `${API_URL}/users/${userData.id}/posts`;
   const posts = await fetch(POSTS_API_URL);
   const postsData: PostType[] = await posts.json();
 
@@ -36,8 +35,7 @@ const UsersId: NextPage<Props> = (props) => {
   const { fallback } = props;
   return (
     <SWRConfig value={{ fallback }}>
-      <Header />
-      <UserComponent />
+      <UserDetail />
     </SWRConfig>
   );
 };

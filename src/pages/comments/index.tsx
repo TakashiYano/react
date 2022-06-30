@@ -1,6 +1,6 @@
 import type { InferGetStaticPropsType, NextPage } from "next";
-import { CommentsComponent } from "src/components/Comments";
-import { Header } from "src/components/Header";
+import Head from "next/head";
+import { CommentList } from "src/components/Comment/CommentList";
 import { CommentType } from "src/types/types";
 import { API_URL } from "src/utils/const";
 import { SWRConfig } from "swr";
@@ -26,9 +26,11 @@ const Comments: NextPage<Props> = (props) => {
   const { fallback } = props;
   return (
     <div>
+      <Head>
+        <title>Comments Page</title>
+      </Head>
       <SWRConfig value={{ fallback }}>
-        <Header />
-        <CommentsComponent />
+        <CommentList />
       </SWRConfig>
     </div>
   );

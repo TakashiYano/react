@@ -1,10 +1,17 @@
 // posts, users, comments
 export type FetchType = {
-  id: number;
-  body: string;
+  postId: string;
+  userId: string;
+  id: string;
   title: string;
+  body: string;
   name: string;
+  username: string;
   email: string;
+  address: { city: string };
+  phone: string;
+  website: string;
+  company: { name: string };
 };
 
 // post
