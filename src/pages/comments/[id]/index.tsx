@@ -35,6 +35,7 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
   if (!comment.ok) {
     return {
       notFound: true,
+      revalidate: 10,
     };
   }
 
@@ -46,6 +47,7 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
         [COMMENT_API_URL]: commentData,
       },
     },
+    revalidate: 10,
   };
 };
 

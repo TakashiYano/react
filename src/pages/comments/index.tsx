@@ -18,6 +18,7 @@ export const getStaticProps = async () => {
         [COMMENTS_API_URL]: commentsData,
       },
     },
+    revalidate: 10,
   };
 };
 
