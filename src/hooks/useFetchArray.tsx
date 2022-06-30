@@ -1,4 +1,5 @@
 import { FetchType } from "src/types/types";
+import { API_URL } from "src/utils/const";
 import useSWRImmutable from "swr/immutable";
 import { Key } from "swr";
 
@@ -12,8 +13,6 @@ export const useFetchArray = (url: Key) => {
     isEmpty: data && data.length === 0,
   };
 };
-
-const API_URL = "https://jsonplaceholder.typicode.com";
 
 // posts
 export const usePosts = () => {

@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { fetcher } from "src/utils/fetcher";
 import { UserType } from "src/types/types";
+import { API_URL } from "src/utils/const";
 
 export type Props = {
   id: string | undefined;
@@ -8,7 +9,7 @@ export type Props = {
 
 export const UserByUserId: React.FC<Props> = (props) => {
   const { data, error } = useSWR<UserType, Error>(
-    props.id ? `https://jsonplaceholder.typicode.com/users/${props.id}` : null,
+    props.id ? `${API_URL}/users/${props.id}` : null,
     fetcher
   );
 
