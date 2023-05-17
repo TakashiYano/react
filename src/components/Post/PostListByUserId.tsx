@@ -28,7 +28,7 @@ export const PostListByUserId: React.FC<Props> = (props) => {
       {data?.map((post) => {
         return (
           <li key={post.id}>
-            <Link href={`/posts/${post.id}`}>
+            <Link href={`/posts/${post.id}`} legacyBehavior>
               <a className="block group">
                 <h1 className="text-xl font-bold group-hover:text-blue-500">
                   {post.title}

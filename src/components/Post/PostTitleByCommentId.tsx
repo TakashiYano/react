@@ -20,7 +20,7 @@ export const PostTitleByCommentId: React.FC<Props> = (props) => {
   }
 
   return (
-    <Link href={`/posts/${data?.id}`}>
+    <Link href={`/posts/${data?.id}`} legacyBehavior>
       <a className="text-lg hover:text-blue-500">{data?.title}</a>
     </Link>
   );
